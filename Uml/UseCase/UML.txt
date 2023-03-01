@@ -1,0 +1,34 @@
+User UseCase 
+
+- Login 
+- Register 
+- Browse 
+- View Categories 
+- Search 
+- Compare Products 
+- View Details of Product 
+- Give FeedBack 
+- Add To Cart 
+- Cheek Out
+- Payment 
+- Contact Support 
+
+
+Seller UseCase 
+
+- Login 
+- Register
+- Add Products 
+- Edit Product 
+- Delete Product 
+- Receive Orders 
+- Get FeedBacks  
+- Check Total Income 
+- View Product Stuts 
+- Contact Support 
+- Search in His Products 
+- View Statistecs 
+- Make Offers 
+
+== Contact With Shipping Company 
+== Bank Transfers 
