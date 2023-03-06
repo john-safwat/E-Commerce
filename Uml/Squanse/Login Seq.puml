@@ -1,0 +1,61 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+participant User 
+participant Login
+participant Register 
+participant Database
+participant HomeScreen
+
+
+User -> Login : Enter User Name 
+User -> Login : Enter Password 
+User -> Login : Submit 
+activate Login
+
+group 
+alt#Gold #LightBlue Successful case Login 
+Login -> Database : Validate User 
+activate Database 
+Database --> Login : Valid 
+Login --> User : redirect to Home Screen
+
+
+else #Pink unSuccessful case Login
+
+
+Login -> Database : Validate User   
+Database --> Login : Invalid 
+Login --> User : ReDirect To Registeration 
+User -> Register : Create Account 
+activate Register 
+
+end
+
+User -> HomeScreen : valid User 
+
+group 
+alt#Gold #LightBlue  Successful case Register
+Register -> Database : Validate User  
+Database --> Register : Valid 
+Register --> User : redirect to Home Screen
+
+
+else #Pink  unSuccessful case Register
+
+
+Register -> Database : Validate User   
+Database --> Register: Invalid 
+Register --> User : ReDirect To Login 
+
+end
+deactivate Login 
+deactivate Register
+deactivate Database
+
+User -> HomeScreen : valid User 
+
+
+
+@endum
