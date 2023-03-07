@@ -1,0 +1,49 @@
+@startuml
+(*) -->[Open App] "Welcome Screen"
+"Welcome Screen" --> if "Have Account" then
+
+-->[True] "Login" 
+--> home Screen
+
+else
+
+-->[False] "Resgister" 
+--> home Screen
+
+endif
+
+"home Screen" --> Browse
+"home Screen" --> Cart Tab
+"home Screen" --> Search Tab
+"home Screen" --> Profile Tab
+"home Screen" --> Category Tab
+
+"Profile Tab" --> View Profile
+"View Profile" --> Edit Profile
+
+"View Profile" --> Orders
+"View Profile" --> Wish List
+"Orders" --> Active Orders
+"Orders" --> History 
+"Active Orders" --> Edit Order
+"Edit Order" --> Cancel Order
+"Edit Order"--> Refund Order
+
+"Cart Tab" --> Payment 
+
+"Category Tab" --> Browse 
+"Search Tab" --> Browse 
+
+"Browse" --> View Product Details 
+
+"View Product Details" --> Add to Cart
+"View Product Details" --> Give FeedBack
+"View Product Details" --> Add to Wish List
+
+"Payment"--> View Purchase Details 
+"View Purchase Details"--> (*)
+"Add to Cart"--> (*)
+"Refund Order"--> (*)
+"Cancel Order"--> (*)
+
+@enduml
