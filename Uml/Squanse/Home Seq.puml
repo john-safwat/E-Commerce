@@ -1,0 +1,70 @@
+@startuml
+'https://plantuml.com/sequence-diagram\
+autonumber
+participant User
+participant Home_Screen
+participant Category_Tab 
+participant product
+participant Database 
+
+User -> Home_Screen : Open App 
+activate Home_Screen 
+
+
+group 
+
+'first partation of the group if the Response from the home screen to user is success'
+alt#Gold #LightBlue response Sucsess 
+Home_Screen ->  Database : Request Data 
+activate Database     
+Database --> Home_Screen : Respone Success  
+Home_Screen --> User : Show Data 
+
+
+'the second partation handels the case of if the response was a failure it loops until the response is success'
+else #pink exeption Hppend 
+loop#gold #pink request until response success
+Home_Screen ->  Database : Request Data     
+Database --> Home_Screen : Response Failure
+Home_Screen --> User : Reload Home Screen 
+
+'if the data response from database is success it shows the data in home screen'
+else #LightBlue response 
+Home_Screen ->  Database : Request Data 
+Database --> Home_Screen : Respone Success  
+deactivate Database
+Home_Screen --> User : Show Data 
+end
+end
+
+
+User -> Category_Tab : Navigate to Category Tab
+deactivate Home_Screen
+activate Category_Tab
+group 
+'first partation of the group if the Response from the home screen to user is success'
+alt#Gold #LightBlue response Sucsess 
+Category_Tab ->  Database : Request Data 
+activate Database     
+Database --> Category_Tab : Respone Success  
+Category_Tab --> User : Show Data 
+
+
+'the second partation handels the case of if the response was a failure it loops until the response is success'
+else #pink exeption Hppend 
+loop#gold #pink request until response success
+Category_Tab ->  Database : Request Data     
+Database --> Category_Tab : Response Failure
+Category_Tab --> User : Reload Category Tab  
+
+'if the data response from database is success it shows the data in home screen'
+else #LightBlue response 
+Category_Tab ->  Database : Request Data 
+Database --> Category_Tab : Respone Success  
+deactivate Database
+Category_Tab --> User : Show Data 
+end
+end
+
+
+@endum
