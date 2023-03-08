@@ -30,6 +30,8 @@ endif
 "Edit Order"--> Refund Order
 
 "Cart Tab" --> Payment 
+"Cart Tab" --> Remove Product
+
 
 "Category Tab" --> Browse 
 "Search Tab" --> Browse 
